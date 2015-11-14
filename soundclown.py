@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# `soundclown.py' v20151114-1853
+# `soundclown.py' v20151114-2146
 # (c) brr [berr.yt]
 #
 # shoutz 2 whoever's original code helped write this. some of their
@@ -64,7 +64,8 @@ class sound:
 		table.append(('Title',self.title))
 		table.append(('',''))
 		table.append(('Artwork (500x500)',self.artwork500))
-		table.append(('Artwork (Original)',self.artworkOrig))
+		if self.artworkOrig != '':
+			table.append(('Artwork (Original)',self.artworkOrig))
 		if self.streamable:
 			table.append(('Stream URL',self.streamUrl))
 		else:
@@ -111,6 +112,16 @@ class sound:
 		self.ID = track['id']
 		self.artwork500 = track['artwork_url'].replace('-large','-t500x500')
 		self.artworkOrig = track['artwork_url'].replace('-large','-original')
+		print '[!] Checking for original artwork...'
+		r = urllib2.Request(self.artworkOrig)
+		r.get_method = lambda : 'HEAD'
+		try:
+			r = urllib2.urlopen(r)
+			print r.info()
+			print '    found'
+		except urllib2.HTTPError:
+			self.artworkOrig = ''
+			print '    not found'
 		self.userName = track['user']['permalink']
 		self.userDisplay = track['user']['username']
 		self.url = track['permalink_url']
@@ -157,7 +168,8 @@ class sound:
 	
 	def download(self):
 		print '[!] Starting downloads...'
-		self.save('Artwork (Original)',self.artworkOrig,self.streamFilename+'-orig.jpg')
+		if self.artworkOrig != '':
+			self.save('Artwork (Original)',self.artworkOrig,self.streamFilename+'-orig.jpg')
 		self.save('Artwork (500x500)',self.artwork500,self.streamFilename+'-500.jpg')
 		if self.streamable:
 			self.save('Stream Audio',self.streamUrl,self.streamFilename+'.mp3')
