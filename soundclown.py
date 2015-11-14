@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# `soundclown.py' v20151114-2155
+# `soundclown.py' v20151114-2226
 # (c) brr [berr.yt]
 #
 # shoutz 2 whoever's original code helped write this. some of their
@@ -59,9 +59,9 @@ class sound:
 		max2 = 0
 		table.append(('URL',self.url))
 		table.append(('ID',str(self.ID)))
-		table.append(('Artist (display)',self.userDisplay))
+		table.append(('Artist (display)',self.userDisplay.encode("ascii","replace")))
 		table.append(('Artist (username)',self.userName))
-		table.append(('Title',self.title))
+		table.append(('Title',self.title.encode("ascii","replace")))
 		table.append(('',''))
 		table.append(('Artwork (500x500)',self.artwork500))
 		if self.artworkOrig != '':
