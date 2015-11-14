@@ -23,6 +23,9 @@ Python 2.7.10
 Windows 7 x64
 
 #changeblog
+v20151114-2226
+- dont print titles and artists in unicode because it breaks (fuck python utf8). still saves as utf8
+
 v20151114-2155
 - forgot to remove an unnecessary print
 
