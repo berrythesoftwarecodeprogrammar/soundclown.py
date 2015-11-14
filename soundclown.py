@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# `soundclown.py' v20151114-2146
+# `soundclown.py' v20151114-2155
 # (c) brr [berr.yt]
 #
 # shoutz 2 whoever's original code helped write this. some of their
@@ -117,7 +117,6 @@ class sound:
 		r.get_method = lambda : 'HEAD'
 		try:
 			r = urllib2.urlopen(r)
-			print r.info()
 			print '    found'
 		except urllib2.HTTPError:
 			self.artworkOrig = ''
