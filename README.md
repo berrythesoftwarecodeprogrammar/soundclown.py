@@ -23,5 +23,7 @@ Python 2.7.10
 Windows 7 x64
 
 #changeblog
+- v20151114-2146
+only download original artwork if its available (it was downloading an empty file when 404)
 - v20151114-1853
--- first release
+first release
