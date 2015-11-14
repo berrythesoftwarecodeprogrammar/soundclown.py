@@ -1,6 +1,10 @@
 # soundclown.py
 python soundcloud downloader
 
+# requirements
+python
+python requests (pip install requests)
+
 # about
 i had a python soundcloud downloader which i found online a while ago and modified a bunch to suit my needs but recently it started failing on some songs so ive decided to rewrite it and put it on github while i work on it.
 
