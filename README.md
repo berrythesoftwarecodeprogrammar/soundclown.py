@@ -21,3 +21,7 @@ i had a python soundcloud downloader which i found online a while ago and modifi
 # tested on
 Python 2.7.10
 Windows 7 x64
+
+#changeblog
+- v20151114-1853
+- - first release
