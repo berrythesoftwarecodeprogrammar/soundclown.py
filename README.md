@@ -24,4 +24,4 @@ Windows 7 x64
 
 #changeblog
 - v20151114-1853
-- - first release
+-- first release
