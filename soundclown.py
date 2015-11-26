@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# `soundclown.py' v20151114-2226
+# `soundclown.py' v20151127-0221
 # (c) brr [berr.yt]
 #
 # shoutz 2 whoever's original code helped write this. some of their
@@ -62,6 +62,8 @@ class sound:
 		table.append(('Artist (display)',self.userDisplay.encode("ascii","replace")))
 		table.append(('Artist (username)',self.userName))
 		table.append(('Title',self.title.encode("ascii","replace")))
+		if self.downloadFilename != '':
+			table.append(('Original filename',self.downloadFilename))
 		table.append(('',''))
 		table.append(('Artwork (500x500)',self.artwork500))
 		if self.artworkOrig != '':
@@ -139,7 +141,7 @@ class sound:
 			except KeyError:
 				raise Error("Unable to retrieve stream URL. Most likely invalid key")
 		if track['downloadable']:
-			self.downloadble = True
+			self.downloadable = True
 			self.downloadUrl = "{0}?client_id={1}".format(track['download_url'], clientKey)
 			print '[!] Original file available. Retrieving filename...'
 			r = urllib2.Request(self.downloadUrl)
@@ -174,8 +176,9 @@ class sound:
 			self.save('Stream Audio',self.streamUrl,self.streamFilename+'.mp3')
 		if self.downloadable:
 			self.save('Original Audio',self.downloadUrl,self.downloadFilename)
-		print '    done'
+		print '\n    done'
 
 s = sound(url)
 s.info()
 s.download()
+pause = raw_input()
