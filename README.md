@@ -2,7 +2,7 @@
 python soundcloud downloader
 
 # usage
-`python soundclown.py <soundcloud-url>
+`python soundclown.py <soundcloud-url>`
 
 # requirements
 python  
